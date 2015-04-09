@@ -32,7 +32,7 @@ define([
 	"extensions/scrollSync",
 	"extensions/buttonSync",
 	"extensions/buttonPublish",
-	"extensions/buttonStat",
+	//"extensions/buttonStat",
 	"extensions/buttonHtmlCode",
 	"extensions/buttonViewer",
 	"extensions/welcomeTour",

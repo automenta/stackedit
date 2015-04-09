@@ -3,5 +3,7 @@
     "latedef": true,
     "undef": true,
     "unused": true,
-    "expr": true
+    "expr": true,
+    "shadow": true,
+    "strict": false
 }

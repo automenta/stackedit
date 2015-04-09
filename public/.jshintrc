@@ -1,8 +1,7 @@
 {
-    "curly": true,
+    "curly": false,
     "browser": true,
     "devel": true,
-    "indent": 4,
     "latedef": true,
     "undef": true,
     "unused": true,

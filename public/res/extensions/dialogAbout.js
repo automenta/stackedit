@@ -5,7 +5,7 @@ define([
 	"utils",
 	"classes/Extension",
 	"text!html/dialogAbout.html"
-], function($, _, constants, utils, Extension, MonetizeJS, dialogAboutHTML) {
+], function($, _, constants, utils, Extension, dialogAboutHTML) {
 
 	var dialogAbout = new Extension("dialogAbout", 'Dialog "About"');
 

@@ -13,7 +13,7 @@ var bump = require('gulp-bump');
 var childProcess = require('child_process');
 var runSequence = require('run-sequence');
 var fs = require('fs');
-
+var conf = require('./config.js');
 
 /** __________________________________________
  * constants.js
@@ -71,16 +71,23 @@ gulp.task('requirejs', [
 	'copy-requirejs',
 	'constants'
 ], function() {
+    
+    var production = conf.production;
+    
 	return requirejs({
+    	//see: https://github.com/jrburke/r.js/blob/master/build/example.build.js
+    	
 		baseUrl: 'public/res',
 		name: 'main',
 		out: 'main.js',
 		mainConfigFile: 'public/res/main.js',
-		optimize: 'uglify2',
+		optimize: production ? 'uglify2' : 'none',
+		 findNestedDependencies : true,
+	    	   preserveLicenseComments: false,
+       //optimizeAllPluginResources: true,
+       removeCombined: true,
 		inlineText: true,
-		paths: {
-			mathjax: 'empty:'
-		},
+		logLevel: 3 /* error */,
 		excludeShallow: [
 			'css/css-builder',
 			'less/lessc-server',
@@ -89,9 +96,10 @@ gulp.task('requirejs', [
 	})
 		.pipe(uglify({
 			output: {
-				beautify: true,
+				beautify: false,
 				indent_level: 1,
-				ascii_only: true
+				ascii_only: false
+				 //mangle: production
 			}
 		}))
 		.pipe(gulp.dest('./public/res-min/'));
@@ -119,8 +127,10 @@ gulp.task('less', ['clean-less'], function() {
 		'./public/res/styles/base.less',
 		'./public/res/themes/*.less'
 	])
+    	//https://www.npmjs.com/package/grunt-contrib-less
 		.pipe(less({
-			compress: true
+			compress: conf.production,
+			ieCompat: false
 		}))
 		.pipe(gulp.dest('./public/res-min/themes/'));
 });
@@ -128,7 +138,7 @@ gulp.task('less', ['clean-less'], function() {
 /** __________________________________________
  * Fonts
  */
-
+/*
 gulp.task('clean-font', function() {
 	return gulp.src('./public/res-min/font')
 		.pipe(clean());
@@ -138,11 +148,12 @@ gulp.task('copy-font', ['clean-font'], function() {
 	return gulp.src('./public/res/font/*')
 		.pipe(gulp.dest('./public/res-min/font/'));
 });
+*/
 
 /** __________________________________________
  * Images
  */
-
+/*
 gulp.task('clean-img', function() {
 	return gulp.src('./public/res-min/img')
 		.pipe(clean());
@@ -151,7 +162,7 @@ gulp.task('clean-img', function() {
 gulp.task('copy-img', ['clean-img'], function() {
 	return gulp.src('./public/res/img/*')
 		.pipe(gulp.dest('./public/res-min/img/'));
-});
+});*/
 
 /** __________________________________________
  * cache.manifest
@@ -174,52 +185,19 @@ gulp.task('cache-manifest', function() {
 					return filepath.substring(1);
 				}
 			}))
-		.pipe(inject(gulp.src([
-				'./res/bower-libs/MathJax/MathJax.js',
-				'./res/bower-libs/MathJax/config/Safe.js',
-				'./res/bower-libs/MathJax/config/TeX-AMS_HTML.js',
-				'./res/bower-libs/MathJax/images/CloseX-31.png',
-				'./res/bower-libs/MathJax/images/MenuArrow-15.png',
-				'./res/bower-libs/MathJax/jax/output/HTML-CSS/jax.js',
-				'./res/bower-libs/MathJax/extensions/**/*.*',
-				'./res/bower-libs/MathJax/fonts/HTML-CSS/TeX/woff/**/*.*',
-				'./res/bower-libs/MathJax/jax/element/**/*.*',
-				'./res/bower-libs/MathJax/jax/output/HTML-CSS/autoload/**/*.*',
-				'./res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/**/*.*'
-			], {
-				read: false,
-				cwd: './public'
-			}),
-			{
-				starttag: '# start_inject_mathjax',
-				endtag: '# end_inject_mathjax',
-				ignoreExtensions: true,
-				transform: function(filepath) {
-					if(filepath == '/res/bower-libs/MathJax/MathJax.js') {
-						filepath += '?config=TeX-AMS_HTML';
-					}
-					else {
-						filepath += '?rev=2.5.0';
-					}
-					return filepath.substring(1);
-				}
-			}))
+		
 		.pipe(gulp.dest('./public/'));
 });
 
 gulp.task('clean', [
 	'clean-requirejs',
-	'clean-less',
-	'clean-font',
-	'clean-img'
+	'clean-less'
 ]);
 gulp.task('default', function(cb) {
 	runSequence([
 			'jshint',
 			'requirejs',
-			'less',
-			'copy-font',
-			'copy-img'
+			'less'
 		],
 		'cache-manifest',
 		cb);

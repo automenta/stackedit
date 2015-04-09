@@ -21,7 +21,7 @@ define([
 	"providers/sshProvider",
 	"providers/tumblrProvider",
 	"providers/wordpressProvider"
-], function($, _, constants, utils, storage, settings, eventMgr, fileSystem, fileMgr, MonetizeJS, Provider, AsyncTask) {
+], function($, _, constants, utils, storage, settings, eventMgr, fileSystem, fileMgr, Provider, AsyncTask) {
 
 	var publisher = {};
 

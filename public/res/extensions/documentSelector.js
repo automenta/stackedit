@@ -63,7 +63,9 @@ define([
             var $liElt = $(liElt);
             liEltList.push($liElt);
             var fileDesc = fileSystem[$liElt.data('fileIndex')];
-            liEltMap[fileDesc.fileIndex] = $liElt;
+			if (fileDesc) {
+				liEltMap[fileDesc.fileIndex] = $liElt;
+			}
         });
     }, 50);
 

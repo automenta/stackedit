@@ -29,7 +29,7 @@ define([
 			'<title><%= documentTitle %></title>',
 			'<link rel="stylesheet" href="' + constants.MAIN_URL + 'res-min/themes/base.css" />',
 			//'<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>',
-			//'</head>',
+			'</head>',
 			'<body><div class="container"><%= documentHTML %></div></body>',
 			'</html>'
 		].join('\n'),
@@ -44,7 +44,7 @@ define([
 			//'MathJax.Hub.Config({ messageStyle: "none" });',
 			//'</script>',
 			//'<script type="text/javascript" src="http://localhost/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>',
-			//'</head>',
+			'</head>',
 			'<body><%= documentHTML %></body>',
 			'</html>'
 		].join('\n'),

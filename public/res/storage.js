@@ -276,7 +276,7 @@ define([
 	if(version == "v22") {
 		if(_.has(localStorage, 'settings')) {
 			settings = JSON.parse(localStorage.settings);
-			settings.couchdbUrl && (settings.couchdbUrl = settings.couchdbUrl.replace('https://stackedit.couchappy.com/documents', 'https://stackedit.smileupps.com/documents'));
+			settings.couchdbUrl;
 			localStorage.settings = JSON.stringify(settings);
 		}
 		version = "v23";
