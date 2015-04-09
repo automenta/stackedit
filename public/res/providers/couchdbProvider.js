@@ -253,11 +253,17 @@ define([
 
 		$documentIdsElt = $('#input-sync-import-couchdb-documentid');
 		var modalElt = document.querySelector('.modal-download-couchdb');
+		if (!modalElt) {
+			console.error('couchDB provider missing .modal-download-couchdb elements');
+			return;
+		}
 		var $documentListElt = $(modalElt.querySelector('.document-list'));
 		var $selectedDocumentListElt = $(modalElt.querySelector('.selected-document-list'));
 		var $pleaseWaitElt = $(modalElt.querySelector('.please-wait'));
 		var $noDocumentElt = $(modalElt.querySelector('.no-document'));
 		var $moreDocumentsElt = $(modalElt.querySelector('.more-documents'));
+
+
 		var documentMap, lastDocument;
 		var selectedDocuments, $selectedElts;
 		function doSelect() {

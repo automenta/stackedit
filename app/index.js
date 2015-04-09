@@ -68,4 +68,6 @@ app.use(function(req, res) {
 	res.render('error_404.html');
 });
 
+app.config = config;
+
 module.exports = app;

@@ -92,6 +92,7 @@ define([
 		if(isOffline === true && navigator.onLine === true && offlineTime + constants.CHECK_ONLINE_PERIOD < utils.currentTime) {
 			offlineTime = utils.currentTime;
 			// Try to download anything to test the connection
+			// TODO other than google PLEASE
 			$.ajax({
 				url: "//www.google.com/jsapi",
 				timeout: constants.AJAX_TIMEOUT,

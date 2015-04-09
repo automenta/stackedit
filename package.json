@@ -1,50 +1,58 @@
 {
-  "name": "stackedit",
-  "version": "4.3.11-x",
-  "private": true,
-  "description": "StackEdit is a free, open-source Markdown editor based on PageDown, the Markdown library used by Stack Overflow and the other Stack Exchange sites.",
-  "main": "res/main.js",
-  "engines": {
-    "node": "0.10.x"
-  },
-  "directories": {
-    "doc": "doc"
-  },
-  "dependencies": {
-    "express": "latest",
-    "ejs": "latest",
-    "request": "latest",
-    "ssh2": "latest",
-    "compression": "latest",
-	"level-fs": "latest"
-  },
-  "devDependencies": {
-    "gulp": "latest",
-    "gulp-requirejs": "latest",
-    "gulp-jshint": "latest",
-    "gulp-uglify": "latest",
-    "gulp-less": "latest",
-    "bower-requirejs": "latest",
-    "gulp-inject": "latest",
-    "run-sequence": "latest",
-    "gulp-rimraf": "latest",
-    "gulp-replace": "latest",
-    "gulp-bump": "latest",
-    "gulp-util": "latest",
-    "knox": "latest",
-    "mime": "latest",
-    "event-stream": "latest"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/automenta/stackedit.git"
-  },
-  "author": "Benoit Schweblin / SeH",
-  "license": "Apache License",
-  "bugs": {
-    "url": "https://github.com/automenta/stackedit/issues"
-  }
+	"name": "stackedit",
+	"version": "4.3.11-x",
+	"private": true,
+	"description": "StackEdit is a free, open-source Markdown editor based on PageDown, the Markdown library used by Stack Overflow and the other Stack Exchange sites.",
+	"main": "res/main.js",
+	"engines": {
+		"node": "0.10.x"
+	},
+	"directories": {
+		"doc": "doc"
+	},
+	"dependencies": {
+		"express": "latest",
+		"ejs": "latest",
+		"request": "latest",
+		"ssh2": "latest",
+		"compression": "latest",
+
+		"level": "latest",
+		"pouchdb": "latest",
+		"pouchdb-quick-search": "latest",
+		"pouchdb-upsert": "latest",
+		"geopouch": "latest",
+		"level-fs": "latest",
+
+		"telehash": "latest"
+	},
+	"devDependencies": {
+		"gulp": "latest",
+		"gulp-requirejs": "latest",
+		"gulp-jshint": "latest",
+		"gulp-uglify": "latest",
+		"gulp-less": "latest",
+		"bower-requirejs": "latest",
+		"gulp-inject": "latest",
+		"run-sequence": "latest",
+		"gulp-rimraf": "latest",
+		"gulp-replace": "latest",
+		"gulp-bump": "latest",
+		"gulp-util": "latest",
+		"knox": "latest",
+		"mime": "latest",
+		"event-stream": "latest"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/automenta/stackedit.git"
+	},
+	"author": "Benoit Schweblin / SeH",
+	"license": "Apache License",
+	"bugs": {
+		"url": "https://github.com/automenta/stackedit/issues"
+	}
 }
