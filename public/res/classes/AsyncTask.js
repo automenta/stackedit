@@ -1,12 +1,12 @@
 define([
-    "underscore",
+    "lodash",
     "constants",
     "utils",
     "eventMgr",
 ], function(_, constants, utils, eventMgr) {
-    
+
     var taskQueue = [];
-    
+
     function AsyncTask(force) {
         this.finished = false;
         this.timeout = constants.ASYNC_TASK_DEFAULT_TIMEOUT;
@@ -16,7 +16,7 @@ define([
         this.errorCallbacks = [];
         this.force = force;
     }
-    
+
     /**
      * onRun callbacks are called by chain(). These callbacks have to call
      * chain() themselves to chain with next onRun callback or error() to
@@ -25,7 +25,7 @@ define([
     AsyncTask.prototype.onRun = function(callback) {
         this.runCallbacks.push(callback);
     };
-    
+
     /**
      * onSuccess callbacks are called when every onRun callbacks have
      * succeed.
@@ -33,7 +33,7 @@ define([
     AsyncTask.prototype.onSuccess = function(callback) {
         this.successCallbacks.push(callback);
     };
-    
+
     /**
      * onError callbacks are called when error() is called in a onRun
      * callback.
@@ -41,7 +41,7 @@ define([
     AsyncTask.prototype.onError = function(callback) {
         this.errorCallbacks.push(callback);
     };
-    
+
     /**
      * chain() calls the next onRun callback or the onSuccess callbacks when
      * finished. The optional callback parameter can be used to pass an
@@ -74,7 +74,7 @@ define([
         var runCallback = this.queue.shift();
         runCallback();
     };
-    
+
     /**
      * error() calls the onError callbacks passing the error parameter and
      * ends the task by throwing an exception.
@@ -92,7 +92,7 @@ define([
         // Exit the current call stack
         throw error;
     };
-    
+
     /**
      * retry() can be called in an onRun callback to restart the task
      */
@@ -130,10 +130,10 @@ define([
     eventMgr.addListener("onUserActive", function() {
         isUserReal = true;
     });
-    
+
     // Run the next task in the queue if any and no other running
     function runTask() {
-    
+
         // If there is a task currently running
         if(currentTaskRunning === true) {
             // If the current task takes too long
@@ -164,7 +164,7 @@ define([
             currentTask.chain();
         }
     }
-    
+
     // Call runTask periodically
     eventMgr.addListener("onPeriodicRun", runTask);
 

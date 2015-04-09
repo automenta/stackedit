@@ -1,6 +1,6 @@
 define([
     "jquery",
-    "underscore",
+    "lodash",
     "utils",
     "storage",
     "classes/Provider",
@@ -24,7 +24,7 @@ define([
         });
         return result;
     }
-    
+
     var imageDoc;
     var importImagePreferences = utils.retrieveIgnoreError(PROVIDER_GPLUS + ".importImagePreferences");
     var importImageCallback;
@@ -57,7 +57,7 @@ define([
             showImportImgDialog();
         }, 'img');
     };
-    
+
     gplusProvider.uploadImage = function(imgName, imgContent, callback) {
         importImageCallback = callback;
         googleHelper.uploadImg(imgName, imgContent, "default", function(error, image) {
@@ -73,7 +73,7 @@ define([
                 imageDoc.thumbnails.push({
                     url: $(this).attr("url")
                 });
-            });            
+            });
             showImportImgDialog();
         });
     };

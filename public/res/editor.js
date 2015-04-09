@@ -2,7 +2,7 @@
 // Credit to http://dabblet.com/
 define([
 	'jquery',
-	'underscore',
+	'lodash',
 	'utils',
 	'settings',
 	'eventMgr',

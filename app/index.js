@@ -33,7 +33,7 @@ app.get('/downloadImport', require('./download').importPublic);
 
 // Serve static resources
 app.use(express.static(__dirname + '/../public', {
-	'maxAge': 3153600
+	'maxAge': 3153600000
 }));
 
 if (config.browserCache && (config.debug || config.debuggable)) {

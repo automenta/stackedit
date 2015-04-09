@@ -1,5 +1,5 @@
 define([
-    "underscore",
+    "lodash",
     "utils",
     "classes/Provider",
     "helpers/googleHelper"

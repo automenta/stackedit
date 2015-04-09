@@ -16,14 +16,13 @@ requirejs.config({
 	],
 	paths: {
 		jquery: 'bower-libs/jquery/dist/jquery',
-		underscore: 'bower-libs/underscore/underscore',
+		lodash: 'bower-libs/lodash/lodash',
 		crel: 'bower-libs/crel/crel',
 		jgrowl: 'bower-libs/jgrowl/jquery.jgrowl',
 		mousetrap: 'bower-libs/mousetrap/mousetrap',
 		'mousetrap-record': 'bower-libs/mousetrap/plugins/record/mousetrap-record',
 		toMarkdown: 'bower-libs/to-markdown/src/to-markdown',
 		text: 'bower-libs/requirejs-text/text',
-		mathjax: '../res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML',
 		bootstrap: 'bower-libs/bootstrap/dist/js/bootstrap',
 		requirejs: 'bower-libs/requirejs/require',
 		'google-code-prettify': 'bower-libs/google-code-prettify/src/prettify',
@@ -67,19 +66,14 @@ requirejs.config({
 		raphael: 'bower-libs/raphael/raphael',
 		'flow-chart': 'bower-libs/flowchart/release/flowchart.amd-1.3.4.min',
 		flowchart: 'bower-libs/flowchart/release/flowchart-1.3.4.min',
-		monetizejs: 'bower-libs/monetizejs/src/monetize',
 		'to-markdown': 'bower-libs/to-markdown/src/to-markdown',
 		waitForImages: 'bower-libs/waitForImages/dist/jquery.waitforimages',
-		MathJax: 'bower-libs/MathJax/MathJax',
 		alertify: 'bower-libs/alertify.js/lib/alertify'
 	},
 	shim: {
-		underscore: {
+		lodash: {
 			exports: '_'
 		},
-		mathjax: [
-			'libs/mathjax_init'
-		],
 		jgrowl: {
 			deps: [
 				'jquery'
@@ -160,7 +154,7 @@ requirejs.config({
 			'raphael'
 		],
 		'diagram-grammar': [
-			'underscore'
+			'lodash'
 		],
 		Diagram: [
 			'raphael',

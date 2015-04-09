@@ -1,6 +1,6 @@
 define([
 	"jquery",
-	"underscore",
+	"lodash",
 	"core",
 	"utils",
 	"storage",

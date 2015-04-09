@@ -1,5 +1,5 @@
 define([
-    "underscore",
+    "lodash",
     "settings",
     "utils",
     "classes/Provider",
@@ -26,7 +26,7 @@ define([
             frontMatter.tags !== undefined && (labelList = frontMatter.tags);
         }
         _.isString(labelList) && (labelList = _.compact(labelList.split(/[\s,]/)));
-        
+
         // Deduce format from publishAttributes/template
         var format = (function() {
             if(publishAttributes.format == 'html') {
@@ -40,7 +40,7 @@ define([
             }
             return 'markdown';
         })();
-        
+
         var state = (frontMatter && frontMatter.published === false) ? 'draft' : 'published';
         var date = frontMatter && frontMatter.date;
         tumblrHelper.upload(publishAttributes.blogHostname, publishAttributes.postId, labelList.join(','), format, state, date, title, content, function(error, postId) {

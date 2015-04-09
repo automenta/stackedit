@@ -1,6 +1,6 @@
 define([
 	"jquery",
-	"underscore",
+	"lodash",
 	"classes/Extension",
 	"text!html/dialogManagePublicationLocation.html",
 ], function($, _, Extension, dialogManagePublicationLocationHTML) {

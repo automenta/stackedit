@@ -1,6 +1,6 @@
 define([
 	"jquery",
-	"underscore",
+	"lodash",
 	"crel",
 	"mousetrap",
 	"utils",
@@ -28,7 +28,6 @@ define([
 	"extensions/umlDiagrams",
 	"extensions/markdownExtra",
 	"extensions/toc",
-	"extensions/mathJax",
 	"extensions/emailConverter",
 	"extensions/scrollSync",
 	"extensions/buttonSync",
@@ -128,9 +127,6 @@ define([
 			if(extension.extensionId == 'markdownExtra') {
 				utils.setInputChecked("#input-settings-markdown-extra", isChecked);
 			}
-			else if(extension.extensionId == 'mathJax') {
-				utils.setInputChecked("#input-settings-mathjax", isChecked);
-			}
 			var onLoadSettingsListener = extension.onLoadSettings;
 			onLoadSettingsListener && onLoadSettingsListener();
 		});
@@ -144,12 +140,6 @@ define([
 			// Special case for Markdown Extra and MathJax
 			if(extension.extensionId == 'markdownExtra') {
 				isChecked = utils.getInputChecked("#input-settings-markdown-extra");
-				if(isChecked != extension.enabled) {
-					newExtensionConfig.enabled = isChecked;
-				}
-			}
-			else if(extension.extensionId == 'mathJax') {
-				isChecked = utils.getInputChecked("#input-settings-mathjax");
 				if(isChecked != extension.enabled) {
 					newExtensionConfig.enabled = isChecked;
 				}
@@ -233,9 +223,6 @@ define([
 					_.each(previewContentsElt.children, function(elt) {
 						if(!elt.exportableHtml) {
 							var clonedElt = elt.cloneNode(true);
-							_.each(clonedElt.querySelectorAll('.MathJax, .MathJax_Display, .MathJax_Preview'), function(elt) {
-								elt.parentNode.removeChild(elt);
-							});
 							elt.exportableHtml = clonedElt.innerHTML;
 						}
 						html += elt.exportableHtml;

@@ -1,6 +1,6 @@
 define([
 	"jquery",
-	"underscore",
+	"lodash",
 	"constants",
 	"classes/Extension",
 	"text!html/dialogManageSharingLocation.html"

@@ -1,7 +1,7 @@
 /*global Dropbox */
 define([
 	"jquery",
-	"underscore",
+	"lodash",
 	"constants",
 	"core",
 	"utils",

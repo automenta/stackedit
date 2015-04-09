@@ -1,6 +1,6 @@
 define([
     "jquery",
-    "underscore",
+    "lodash",
     "utils",
     "classes/Extension",
     "text!html/buttonStat.html",

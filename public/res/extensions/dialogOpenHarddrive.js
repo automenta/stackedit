@@ -1,6 +1,6 @@
 define([
     "jquery",
-    "underscore",
+    "lodash",
     "constants",
     "utils",
     "classes/Extension",
@@ -48,7 +48,7 @@ define([
                     }
                     var title = importedFile.name;
                     var dotPosition = title.lastIndexOf(".");
-                    title = dotPosition !== -1 ? title.substring(0, dotPosition) : title; 
+                    title = dotPosition !== -1 ? title.substring(0, dotPosition) : title;
                     var fileDesc = fileMgr.createFile(title, content);
                     fileMgr.selectFile(fileDesc);
                 };
@@ -62,12 +62,12 @@ define([
         contentWrapper = undefined;
         handleFileImport(evt);
     }
-    
+
     function handleHtmlImport(evt) {
         contentWrapper = htmlContentWrapper;
         handleFileImport(evt);
     }
-    
+
     function handleDragOver(evt) {
         evt.stopPropagation();
         evt.preventDefault();
@@ -77,7 +77,7 @@ define([
     dialogOpenHarddrive.onReady = function() {
         // Create toMarkdown converter
         converter = new toMarkdown.converter();
-        
+
         $("#input-file-import-harddrive-markdown").change(handleMarkdownImport);
         $('#dropzone-import-harddrive-markdown, #wmd-input').each(function() {
             this.addEventListener('dragover', handleDragOver, false);

@@ -1,5 +1,5 @@
 define([
-	"underscore",
+	"lodash",
 	"crel",
 	"extensions/markdownExtra",
 	"classes/Extension",

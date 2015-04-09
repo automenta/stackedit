@@ -1,5 +1,5 @@
 define([
-	'underscore',
+	'lodash',
 	'jquery',
 	'storage',
 	'classes/Extension',

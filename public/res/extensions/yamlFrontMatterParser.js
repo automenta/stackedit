@@ -1,5 +1,5 @@
 define([
-    "underscore",
+    "lodash",
     "classes/Extension",
     "yaml-js",
 ], function(_, Extension, YAML) {

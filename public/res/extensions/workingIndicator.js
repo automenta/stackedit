@@ -1,6 +1,6 @@
 define([
     "jquery",
-    "underscore",
+    "lodash",
     "crel",
     "classes/Extension"
 ], function ($, _, crel, Extension) {

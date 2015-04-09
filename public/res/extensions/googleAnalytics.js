@@ -1,7 +1,7 @@
 /*globals _gaq */
 define([
     "jquery",
-    "underscore",
+    "lodash",
     "constants",
     "utils",
     "classes/Extension",
@@ -59,7 +59,7 @@ define([
             'version',
             constants.VERSION
         ]);
-        
+
         // Collect informations about user settings
         _gaq.push([
             '_trackEvent',

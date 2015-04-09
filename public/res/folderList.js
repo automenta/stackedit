@@ -1,5 +1,5 @@
 define([
-    "underscore",
+    "lodash",
     "utils",
     "storage",
     "classes/FolderDescriptor",

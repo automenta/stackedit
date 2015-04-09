@@ -1,6 +1,6 @@
 define([
 	"jquery",
-	"underscore",
+	"lodash",
 	"classes/Extension",
 	"text!html/scrollSyncSettingsBlock.html"
 ], function($, _, Extension, scrollSyncSettingsBlockHTML) {

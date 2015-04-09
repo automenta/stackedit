@@ -1,6 +1,6 @@
 /*global gapi, google */
 define([
-	"underscore",
+	"lodash",
 	"jquery",
 	"constants",
 	"core",

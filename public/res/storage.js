@@ -1,6 +1,6 @@
 // Setup an empty localStorage or upgrade an existing one
 define([
-    "underscore"
+    "lodash"
 ], function(_) {
 
     function retrieveIndexArray(storeIndex) {
@@ -268,8 +268,6 @@ define([
     if(version == "v21") {
         if(_.has(localStorage, 'settings')) {
             settings = JSON.parse(localStorage.settings);
-            settings.template && (settings.template = settings.template.replace('https://stackedit.io/libs/MathJax/', 'https://cdn.mathjax.org/mathjax/latest/'));
-            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('/libs/MathJax/', '/res/bower-libs/MathJax/'));
             localStorage.settings = JSON.stringify(settings);
         }
         version = "v22";
