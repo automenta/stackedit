@@ -22,9 +22,7 @@
 		"pouchdb-quick-search": "latest",
 		"pouchdb-upsert": "latest",
 		"geopouch": "latest",
-		"level-fs": "latest",
-
-		"telehash": "latest"
+		"level-fs": "latest"
 	},
 	"devDependencies": {
 		"gulp": "latest",

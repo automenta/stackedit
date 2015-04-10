@@ -1,9 +1,9 @@
 var cluster = require('cluster');
 var http = require('http');
 var https = require('https');
-var app = require('./app');
+var web = require('./app/web.js');
 var count = require('os').cpus().length;
-var config = app.config;
+var config = require('./config.js');
 
 /*
 if(!process.env.NO_CLUSTER && cluster.isMaster) {
@@ -26,13 +26,13 @@ if(config.ssl) {
 		cert: fs.readFileSync(__dirname + '/../../shared/config/ssl.crt', 'utf8'),
 		ca: fs.readFileSync(__dirname + '/../../shared/config/ssl.ca', 'utf8').split('\n\n')
 	};
-	var httpsServer = https.createServer(credentials, app);
+	var httpsServer = https.createServer(credentials, web);
 	httpsServer.listen(port, null, function() {
 		console.log('HTTPS server started: https://localhost');
 	});
 	port = 80;
 }
-var httpServer = http.createServer(app);
+var httpServer = http.createServer(web);
 httpServer.listen(port, null, function() {
 	console.log('HTTP server started: http://localhost:' + port);
 });
